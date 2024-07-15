@@ -62,56 +62,60 @@ Fixed &Fixed::operator=(const Fixed &rhs)
 
 bool Fixed::operator>(const Fixed &rhs) const
 {
-    return this->toFloat() > rhs.toFloat();
+    return _value > rhs._value;
 }
 
 bool Fixed::operator<(const Fixed &rhs) const
 {
-    return this->toFloat() < rhs.toFloat();
+    return _value < rhs._value;
 }
 
 bool Fixed::operator>=(const Fixed &rhs) const
 {
-    return this->toFloat() >= rhs.toFloat();
+    return _value >= rhs._value;
 }
 
 bool Fixed::operator<=(const Fixed &rhs) const
 {
-    return this->toFloat() <= rhs.toFloat();
+    return _value <= rhs._value;
 }
 
 bool Fixed::operator==(const Fixed &rhs) const
 {
-    return this->toFloat() == rhs.toFloat();
+    return _value == rhs._value;
 }
 
 bool Fixed::operator!=(const Fixed &rhs) const
 {
-    return this->toFloat() != rhs.toFloat();
+    return _value != rhs._value;
 }
 
 Fixed Fixed::operator+(const Fixed &rhs) const
 {
-    Fixed temp(this->toFloat() + rhs.toFloat());
-    return temp;
+    Fixed fixed;
+    fixed.setRawBits(_value + rhs._value);
+    return fixed;
 }
 
 Fixed Fixed::operator-(const Fixed &rhs) const
 {
-    Fixed temp(this->toFloat() - rhs.toFloat());
-    return temp;
+    Fixed fixed;
+    fixed.setRawBits(_value - rhs._value);
+    return fixed;
 }
 
 Fixed Fixed::operator/(const Fixed &rhs) const
 {
-    Fixed temp(this->toFloat() / rhs.toFloat());
-    return temp;
+    Fixed fixed;
+    fixed.setRawBits((_value << _bits) / rhs._value);
+    return fixed;
 }
 
 Fixed Fixed::operator*(const Fixed &rhs) const
 {
-    Fixed temp(this->toFloat() * rhs.toFloat());
-    return temp;
+    Fixed fixed;
+    fixed.setRawBits((_value * rhs._value) >> _bits);
+    return fixed;
 }
 
 Fixed &Fixed::operator++()

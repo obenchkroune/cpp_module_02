@@ -10,9 +10,9 @@ class Fixed
 
     public:
         Fixed(void);
-        Fixed(Fixed &fixed);
+        Fixed(const Fixed &fixed);
         ~Fixed(void);
-        Fixed &operator=(Fixed &rhs);
+        Fixed &operator=(const Fixed &rhs);
         int getRawBits(void) const;
         void setRawBits(const int value);
 };

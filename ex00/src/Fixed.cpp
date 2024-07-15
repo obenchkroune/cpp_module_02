@@ -8,13 +8,13 @@ Fixed::Fixed(void)
     _value = 0;
 }
 
-Fixed::Fixed(Fixed &fixed)
+Fixed::Fixed(const Fixed &fixed)
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = fixed;
 }
 
-Fixed &Fixed::operator=(Fixed &rhs)
+Fixed &Fixed::operator=(const Fixed &rhs)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &rhs)
