@@ -1,4 +1,4 @@
-#include "Point.hpp"
+#include "../include/Point.hpp"
 
 Fixed calculatePointOrientation(Point a, Point b, Point p)
 {

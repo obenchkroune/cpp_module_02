@@ -1,7 +1,7 @@
 NAME            =   ex03
 
 CXX             =   c++
-CXXFLAGS        =   -Wall -Werror -Wextra -std=c++98 -Iinclude -g3 -fsanitize=address
+CXXFLAGS        =   -Wall -Werror -Wextra -std=c++98
 
 SRC             =   ./src/Fixed.cpp ./src/main.cpp ./src/bsp.cpp ./src/Point.cpp
 OBJ             =   $(SRC:.cpp=.o)
